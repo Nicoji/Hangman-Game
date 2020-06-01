@@ -1,5 +1,5 @@
 body {
-    background-color: darkcyan;
+    background-color: #008b8b;
 }
 
 button {
@@ -7,13 +7,31 @@ button {
     display: block;
     margin: auto;
     margin-bottom: 25px;
-    background-color: sienna;
-    border: 1px solid burlywood;
+    background-color: #a0522d;
+    border: 1px solid #deb887;
     border-radius: 10px;
     padding: 5px;
     width: 150px;
-    color: burlywood;
+    color: #deb887;
     cursor: pointer;
+}
+
+dialog {
+    z-index: 1;
+    top: 30%;
+    font-size: 30px;
+    border: 3px solid #deb887;
+    border-radius: 20px;
+    color: #deb887;
+}
+
+/* background color of dialog depending if the player wins or not */
+.lost {
+    background-color: #e93111;
+}
+
+.win {
+    background-color: #29c257;
 }
 
 .container {
@@ -25,6 +43,10 @@ button {
     padding-left: 10px;
     margin: auto;
     margin-top: 20px;
+}
+
+.end-game {
+    opacity: 40%;
 }
 
 .main-part {
@@ -39,7 +61,7 @@ button {
 .base {
     height: 10px;
     width: 100px;
-    background-color: burlywood;
+    background-color: #deb887;
     position: relative;
     top: 490px;
     left: 50px;
@@ -48,26 +70,26 @@ button {
 .first {
     width: 10px;
     height: 500px;
-    background-color: burlywood;
+    background-color: #deb887;
 }
 
 .second {
     width: 250px;
     height: 10px;
-    background-color: burlywood;
+    background-color: #deb887;
 }
 
 .third {
     width: 10px;
     height: 150px;
-    background-color: burlywood;
+    background-color: #deb887;
 }
 
 .head-hangman {
     width: 60px;
     height: 60px;
     border-radius: 100%;
-    background-color: burlywood;
+    background-color: #deb887;
     position: relative;
     right: 35px;
     top: 145px;
@@ -76,7 +98,7 @@ button {
 .body-hangman {
     width: 5px;
     height: 130px;
-    background-color: burlywood;
+    background-color: #deb887;
     position: relative;
     right: 8px;
     top: 140px;
@@ -85,7 +107,7 @@ button {
 .left-arm {
     width: 70px;
     height: 5px;
-    background-color: burlywood;
+    background-color: #deb887;
     position: relative;
     right: 70px;
     top: 60px;
@@ -96,7 +118,7 @@ button {
 .right-arm {
     width: 70px;
     height: 5px;
-    background-color: burlywood;
+    background-color: #deb887;
     position: relative;
     right: 10px;
     top: 56px;
@@ -106,7 +128,7 @@ button {
 .left-leg {
     width: 70px;
     height: 5px;
-    background-color: burlywood;
+    background-color: #deb887;
     position: relative;
     right: 70px;
     top: 141px;
@@ -116,7 +138,7 @@ button {
 .right-leg {
     width: 70px;
     height: 5px;
-    background-color: burlywood;
+    background-color: #deb887;
     position: relative;
     right: 10px;
     top: 136px;
@@ -135,7 +157,7 @@ button {
     width: 80%;
     margin: auto;
     height: 50px;
-    background-color: burlywood;
+    background-color: #deb887;
     display: flex;
     justify-content: space-around;
     font-size: 30px;
@@ -145,8 +167,8 @@ button {
 
 .letter {
     margin-top: 8px;
-    border: 2px solid darkcyan;
-    background-color: darkcyan;
+    border: 2px solid #008b8b;
+    background-color: #008b8b;
     color: white;
     border-radius: 10px;
     height: 35px;
@@ -178,11 +200,11 @@ button {
 
 /* Class added by script */
 .good {
-    background-color: rgba(41, 194, 86, 0.562);
+    background-color: #29c2568f;
 }
 
 .bad {
-    background-color: rgba(233, 49, 17, 0.671);
+    background-color: #e93111ab;
 }
 
 .hide {
@@ -194,7 +216,7 @@ button {
     margin: auto;
     width: 5%;
     height: 5px;
-    background-color: burlywood;
+    background-color: #deb887;
 }
 
 .answer-letter {
