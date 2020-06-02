@@ -3,9 +3,9 @@ const alphabet = document.querySelectorAll('.letter');
 const hangman = document.querySelector('.hangman');
 const resetButton = document.querySelectorAll('button');
 const letterGroup = document.querySelector('.letter-group');
-const lignGroup = document.querySelector('.lign-group');
+const lineGroup = document.querySelector('.line-group');
 const letterAnswer = document.querySelectorAll('.answer-letter');
-const lign = document.querySelectorAll('.lign');
+const line = document.querySelectorAll('.line');
 const winDialog = document.querySelector('.win');
 const lostDialog = document.querySelector('.lost');
 const container = document.querySelector('.container');
@@ -39,9 +39,9 @@ const initGame = () => {
         const createDivLetter = document.createElement("div");
         letterGroup.appendChild(createDivLetter);
         createDivLetter.classList.add('answer-letter');
-        const createDivLign = document.createElement("div");
-        lignGroup.appendChild(createDivLign);
-        createDivLign.classList.add('lign');
+        const createDivLine = document.createElement("div");
+        lineGroup.appendChild(createDivLine);
+        createDivLine.classList.add('line');
     }
     // Show the first letter of this answer
     letterGroup.children[0].textContent = answerArray[0];
@@ -109,14 +109,14 @@ const resetGame = () => {
 
     // Delete all the letters and underscore of the answer 
     const answerLetter = document.querySelectorAll('.answer-letter');
-    const lignLetter = document.querySelectorAll('.lign');
+    const lineLetter = document.querySelectorAll('.line');
 
     for(eachLetter of answerLetter) {
         eachLetter.remove()
     }
 
-    for(eachLign of lignLetter) {
-        eachLign.remove()
+    for(eachLine of lineLetter) {
+        eachLine.remove()
     }
 
     // Pick a new random asnwer for the array word 

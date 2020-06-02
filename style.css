@@ -184,7 +184,7 @@ dialog {
     margin: auto;
 }
 
-.lign-group {
+.line-group {
     width: 90%;
     margin: auto;
     margin-top: 10px;
@@ -211,8 +211,8 @@ dialog {
     visibility: hidden;
 }
 
-/* Each letter of this answer + lign (Added by script) */
-.lign {
+/* Each letter of this answer + line (Added by script) */
+.line {
     margin: auto;
     width: 5%;
     height: 5px;
