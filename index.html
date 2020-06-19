@@ -6,15 +6,33 @@
     <title>Jeu du Pendu</title>
 </head>    
 <body>
+    <dialog class="set-player-number" open="">
+        <p>Choisissez le nombre de joueur : </p>
+        <button class="btn one-player">1 joueur</button>
+        <button class="btn two-player">2 joueurs</button>
+    </dialog>
+    <dialog class="set-guess-word">
+        <p>Entrez le mot à faire deviner au joueur 2 :</p>
+        <input type="text" class="player-word">
+        <button class="btn word-button">Valider</button>
+    </dialog>
     <dialog class="lost">
         <p>Vous avez perdu .. :(</p>
-        <button>Rejouer</button>
+        <button class="reset">Rejouer</button>
     </dialog>
     <dialog class="win">
-        <p>Vous avez gagné ! :D </p>
-        <button>Rejouer</button>
+        <p>Vous avez gagné ! :D</p>
+        <button class="reset">Rejouer</button>
     </dialog>
-    <div class="container">
+    <dialog class="win win-player-one">
+        <p>Le <span class="winner">joueur 1</span> a gagné !</p>
+        <button class="reset">Rejouer</button>
+    </dialog>
+    <dialog class="win win-player-two">
+        <p>Le <span class="winner">joueur 2</span> a gagné !</p>
+        <button class="reset">Rejouer</button>
+    </dialog>
+    <div class="container hide">
         
         <div class="main-part">
             <div class="drawing">
@@ -32,47 +50,49 @@
                 </div>
             </div>
             <div class="pick-letter">
-                <button>Nouvelle Partie</button>
-                <div class="row">
-                    <div class="letter">A</div>
-                    <div class="letter">B</div>
-                    <div class="letter">C</div>
-                    <div class="letter">D</div>
-                </div>
-                <div class="row">
-                    <div class="letter">E</div>
-                    <div class="letter">F</div>
-                    <div class="letter">G</div>
-                    <div class="letter">H</div>
-                </div>
-                <div class="row">
-                    <div class="letter">I</div>
-                    <div class="letter">J</div>
-                    <div class="letter">K</div>
-                    <div class="letter">L</div>
-                </div>
-                <div class="row">
-                    <div class="letter">M</div>
-                    <div class="letter">N</div>
-                    <div class="letter">O</div>
-                    <div class="letter">P</div>
-                </div>
-                <div class="row">
-                    <div class="letter">Q</div>
-                    <div class="letter">R</div>
-                    <div class="letter">S</div>
-                    <div class="letter">T</div>
-                </div>
-                <div class="row">
-                    <div class="letter">U</div>
-                    <div class="letter">V</div>
-                    <div class="letter">W</div>
-                    <div class="letter">X</div>
-                </div>
-                <div class="row">
-                    <div class="letter">Y</div>
-                    <div class="letter">Z</div>
-                </div>
+                <button class="reset">Nouvelle Partie</button>
+                <div class="alphabet">
+                    <div class="row">
+                        <div class="letter">A</div>
+                        <div class="letter">B</div>
+                        <div class="letter">C</div>
+                        <div class="letter">D</div>
+                    </div>
+                    <div class="row">
+                        <div class="letter">E</div>
+                        <div class="letter">F</div>
+                        <div class="letter">G</div>
+                        <div class="letter">H</div>
+                    </div>
+                    <div class="row">
+                        <div class="letter">I</div>
+                        <div class="letter">J</div>
+                        <div class="letter">K</div>
+                        <div class="letter">L</div>
+                    </div>
+                    <div class="row">
+                        <div class="letter">M</div>
+                        <div class="letter">N</div>
+                        <div class="letter">O</div>
+                        <div class="letter">P</div>
+                    </div>
+                    <div class="row">
+                        <div class="letter">Q</div>
+                        <div class="letter">R</div>
+                        <div class="letter">S</div>
+                        <div class="letter">T</div>
+                    </div>
+                    <div class="row">
+                        <div class="letter">U</div>
+                        <div class="letter">V</div>
+                        <div class="letter">W</div>
+                        <div class="letter">X</div>
+                    </div>
+                    <div class="row">
+                        <div class="letter">Y</div>
+                        <div class="letter">Z</div>
+                    </div>
+                </div>    
             </div>
             
         </div>
