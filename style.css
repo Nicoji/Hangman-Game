@@ -25,13 +25,14 @@ dialog {
     color: #deb887;
     background-color: #008b8b;
     font-weight: 800;
+    text-align: center;
 }
 
 input {
     display: block;
     margin: auto;
-    margin-bottom: 40px;
     text-align: center;
+    margin-bottom: 10px;
     line-height: 30px;
     width: 50%;
     font-size: 15px;
@@ -41,6 +42,18 @@ input {
 input:focus {
     outline: none;
     background-color: antiquewhite;
+}
+
+small {
+    font-size: 12px;
+    color: #e4c229;
+    display: block;
+    margin-bottom: 40px;
+}
+
+.wrong-word {
+    text-decoration: underline;
+    color: #e93111;
 }
 
 /* background color of dialog depending if the player wins or not */

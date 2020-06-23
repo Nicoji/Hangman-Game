@@ -1,14 +1,23 @@
 // DOM's element : 
 const alphabet = document.querySelectorAll('.letter');
 const hangman = document.querySelector('.hangman');
-const resetButton = document.querySelectorAll('button');
+const resetButton = document.querySelectorAll('.reset');
 const letterGroup = document.querySelector('.letter-group');
 const lineGroup = document.querySelector('.line-group');
 const letterAnswer = document.querySelectorAll('.answer-letter');
 const line = document.querySelectorAll('.line');
 const winDialog = document.querySelector('.win');
 const lostDialog = document.querySelector('.lost');
+const winPlayerOne = document.querySelector('.win-player-one');
+const winPlayerTwo = document.querySelector('.win-player-two');
 const container = document.querySelector('.container');
+const onePlayer = document.querySelector('.one-player');
+const twoPlayer = document.querySelector('.two-player');
+const selectPlayerNumber = document.querySelector('.set-player-number'); 
+const setGuessWord = document.querySelector('.set-guess-word');
+const wordButton = document.querySelector('.word-button');
+const playerWord = document.querySelector('.player-word');
+const warning = document.querySelector('small');
 
 // Variables : 
 const words = [
@@ -23,15 +32,78 @@ const words = [
     "tasse",
     "cigarette"
 ];
+const allowedChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
+'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
+'W', 'X', 'Y', 'Z'];
 let index = Math.floor(Math.random() * 10);
 let answer = words[index].toUpperCase(); 
 let countForWin = 1;
 let countForLoose = 0;
 const answerArray = [];
 let isGameOver = false;
+let numberPlayer; 
+let answerTwoPlayer = '';
 
 // Functions : 
+const setNumberPlayer = (event) => {
+    if(event.target.classList.contains('one-player')) {
+        numberPlayer = 1;
+        selectPlayerNumber.removeAttribute('open');
+        container.classList.remove('hide');
+        initGame();
+    } else {
+        numberPlayer = 2;
+        selectPlayerNumber.removeAttribute('open');
+        setGuessWord.setAttribute('open', '');
+    }
+}
+
+const setAnswer = () => {
+    
+    if(playerWord.value.length > 3) {
+
+        let playerAnswerArray = [];
+        const UpperCaseWord = playerWord.value.toUpperCase();
+
+        for(let i = 0; i < playerWord.value.length; i++) {
+            playerAnswerArray[i] = UpperCaseWord.substring(i, i+1);
+        }
+
+        const isWordAllowed = (array, target) => {
+            let index = 0;
+            for(let i = 0; i <= array.length; i++) {
+                if(target.includes(array[i])) {
+                    index++;           
+                }
+            }
+            if(index == array.length) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        // Verify if entered word is allowed
+        if(isWordAllowed(playerAnswerArray, allowedChar) == true) {
+            answerTwoPlayer = playerWord.value;
+            setGuessWord.removeAttribute('open');
+            container.classList.remove('hide');
+            initGame();
+        } else {
+            warning.classList.add('wrong-word');            
+        }
+
+    } else {
+        warning.classList.add('wrong-word');            
+    }
+}
+
 const initGame = () => {
+
+    if(numberPlayer == 2) {
+        answer = answerTwoPlayer.toUpperCase();
+    }
+    
     /* Make an array from the answer where each index is one letter of the answer,
     and display as many underscore as there is letters */
     for(let i = 0; i < answer.length; i++) {
@@ -43,6 +115,7 @@ const initGame = () => {
         lineGroup.appendChild(createDivLine);
         createDivLine.classList.add('line');
     }
+    
     // Show the first letter of this answer
     letterGroup.children[0].textContent = answerArray[0];
     
@@ -84,8 +157,13 @@ const isLetterInAnswer = (event) => {
             // Win condition 
             if(countForWin === answer.length) {
                 isGameOver = true;
-                winDialog.setAttribute('open', '');
                 container.classList.add('end-game');
+                
+                if(numberPlayer == 2) {
+                    winPlayerTwo.setAttribute('open', '');
+                } else {
+                    winDialog.setAttribute('open', '');
+                }
             }
         } 
     }
@@ -99,8 +177,13 @@ const isLetterInAnswer = (event) => {
         // Loose condition 
         if(countForLoose == 6) {
             isGameOver = true;
-            lostDialog.setAttribute('open', '');
             container.classList.add('end-game');
+
+            if(numberPlayer == 2) {
+                winPlayerOne.setAttribute('open', '');
+            } else {
+              lostDialog.setAttribute('open', '');
+            }
         }
     }  
 }
@@ -119,13 +202,12 @@ const resetGame = () => {
         eachLine.remove()
     }
 
-    // Pick a new random asnwer for the array word 
-    index  = Math.floor(Math.random() * 10);
-    answer = words[index].toUpperCase();
-
+    // Reset hangman 
     for(let i = 0; i <= 5; i++) {
         hangman.children[i].classList.add('hide');
     }
+
+    // Reset letters from board
     for(let letter of alphabet) {
         letter.classList.remove('good');
         letter.classList.remove('bad');
@@ -136,9 +218,21 @@ const resetGame = () => {
     countForWin = 1;
     winDialog.removeAttribute('open');
     lostDialog.removeAttribute('open');
+    winPlayerOne.removeAttribute('open');
+    winPlayerTwo.removeAttribute('open');
     container.classList.remove('end-game');
 
-    initGame();
+    // Pick a new random asnwer if one player
+    if(numberPlayer == 1) {
+        index  = Math.floor(Math.random() * 10);
+        answer = words[index].toUpperCase();
+        initGame();
+    // Or make the second player choose it if 2 players
+    } else {
+        container.classList.add('hide');
+        setGuessWord.setAttribute('open', '');
+        warning.classList.remove('wrong-word');
+    }    
 }
 
 // Events : 
@@ -150,8 +244,11 @@ for(let button of resetButton) {
     button.addEventListener('click', resetGame);
 }
 
-// Initialization :
-initGame();
+onePlayer.addEventListener('click', setNumberPlayer);
+twoPlayer.addEventListener('click', setNumberPlayer);
+
+wordButton.addEventListener('click', setAnswer);
+
 
 
 

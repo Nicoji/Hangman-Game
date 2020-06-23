@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
     <title>Jeu du Pendu</title>
-</head>    
+</head>
 <body>
     <dialog class="set-player-number" open="">
         <p>Choisissez le nombre de joueur : </p>
@@ -14,6 +14,10 @@
     <dialog class="set-guess-word">
         <p>Entrez le mot à faire deviner au joueur 2 :</p>
         <input type="text" class="player-word">
+        <small>
+            Le mot doit contenir au moins 4 lettres, et UNIQUEMMENT des
+            lettres. Les lettres avec accent doivent être écrites sans l'accent. 
+        </small>
         <button class="btn word-button">Valider</button>
     </dialog>
     <dialog class="lost">
