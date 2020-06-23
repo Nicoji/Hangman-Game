@@ -51,6 +51,11 @@ small {
     margin-bottom: 40px;
 }
 
+img {
+    float: left;
+    cursor: pointer;
+}
+
 .wrong-word {
     text-decoration: underline;
     color: #e93111;

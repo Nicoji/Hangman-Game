@@ -18,6 +18,7 @@ const setGuessWord = document.querySelector('.set-guess-word');
 const wordButton = document.querySelector('.word-button');
 const playerWord = document.querySelector('.player-word');
 const warning = document.querySelector('small');
+const returnButton = document.querySelector('.return');
 
 // Variables : 
 const words = [
@@ -235,6 +236,11 @@ const resetGame = () => {
     }    
 }
 
+const returnScreen = () => {
+    setGuessWord.removeAttribute('open');
+    selectPlayerNumber.setAttribute('open', '');
+}
+
 // Events : 
 for(let letter of alphabet) {
     letter.addEventListener('click', isLetterInAnswer);
@@ -249,7 +255,7 @@ twoPlayer.addEventListener('click', setNumberPlayer);
 
 wordButton.addEventListener('click', setAnswer);
 
-
+returnButton.addEventListener('click', returnScreen);
 
 
 
