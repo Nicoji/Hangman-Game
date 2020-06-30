@@ -19,6 +19,7 @@ const wordButton = document.querySelector('.word-button');
 const playerWord = document.querySelector('.player-word');
 const warning = document.querySelector('small');
 const returnButton = document.querySelector('.return');
+const goodAnswer = document.querySelector('.good-answer');
 
 // Variables : 
 const words = [
@@ -177,6 +178,7 @@ const isLetterInAnswer = (event) => {
         
         // Loose condition 
         if(countForLoose == 6) {
+            goodAnswer.textContent = answer.toLowerCase();
             isGameOver = true;
             container.classList.add('end-game');
 
