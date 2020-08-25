@@ -22,22 +22,22 @@ const returnButton = document.querySelector('.return');
 const goodAnswer = document.querySelector('.good-answer');
 
 // Variables : 
-const words = [
-    "moteur",
-    "administration",
-    "voiture",
-    "table",
-    "grenade", 
-    "arbre",
-    "ordinateur",
-    "blouson",
-    "tasse",
-    "cigarette"
-];
+const words = [ "moteur", "administration", "voiture", "table", "grenade", "arbre", 
+"ordinateur", "blouson", "tasse", "cigarette", "ventilation", "moustique", "peluche",
+"robot", "skateboard", "giraffe", "anniversaire", "pantalon", "stylo", "mirroir", 
+"toboggan", "chocolat", "développement", "photographie", "convertisseur", "Accompagnateur", 
+"baguette", "jardin", "police", "ornithorynque", "clavier", "paysan", "manette", "particule", 
+"housse", "balais", "aspirateur", "ratatouille", "secret", "machine", "animateur",
+"colonisation", "charette", "atlantique", "passoir", "toilette", "plateau", "montagne", 
+"coiffure", "confidentiel", "sculpture", "figurine", "tante", "tente", "tatouage", 
+"viking", "pirate", "empereur", "assiette", "pilote", "basketball", "traduction", 
+"gouvernement", "constitution", "information", "malaise", "tracteur", "synonyme", 
+"opportuniste", "melon", "fraise", "canal", "marin", "oiseau", "insecte"];
+
 const allowedChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 
 'W', 'X', 'Y', 'Z'];
-let index = Math.floor(Math.random() * 10);
+let index = Math.floor(Math.random() * words.length);
 let answer = words[index].toUpperCase(); 
 let countForWin = 0;
 let countForLoose = 0;
