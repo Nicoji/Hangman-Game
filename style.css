@@ -44,8 +44,8 @@ input:focus {
     background-color: antiquewhite;
 }
 
-small {
-    font-size: 12px;
+.warning {
+    font-size: 20px;
     color: #e4c229;
     display: block;
     margin-bottom: 40px;

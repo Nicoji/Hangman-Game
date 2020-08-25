@@ -39,7 +39,7 @@ const allowedChar = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I',
 'W', 'X', 'Y', 'Z'];
 let index = Math.floor(Math.random() * 10);
 let answer = words[index].toUpperCase(); 
-let countForWin = 1;
+let countForWin = 0;
 let countForLoose = 0;
 const answerArray = [];
 let isGameOver = false;
@@ -126,6 +126,11 @@ const initGame = () => {
         if(answerArray[i].includes(letterGroup.children[0].textContent)) {       
             letterGroup.children[i].textContent = answerArray[i];
         } 
+
+        // Make countForWin equal to the number of time the first letter is displayed in the word.
+        if(answerArray[i] == letterGroup.children[0].textContent) {
+            countForWin += 1;
+        }
     }
 
     // Color in green the first letter added
@@ -218,7 +223,7 @@ const resetGame = () => {
 
     isGameOver = false;
     countForLoose = 0;
-    countForWin = 1;
+    countForWin = 0;
     winDialog.removeAttribute('open');
     lostDialog.removeAttribute('open');
     winPlayerOne.removeAttribute('open');
