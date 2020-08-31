@@ -232,7 +232,7 @@ const resetGame = () => {
 
     // Pick a new random asnwer if one player
     if(numberPlayer == 1) {
-        index  = Math.floor(Math.random() * 10);
+        index  = Math.floor(Math.random() * words.length);
         answer = words[index].toUpperCase();
         initGame();
     // Or make the second player choose it if 2 players
